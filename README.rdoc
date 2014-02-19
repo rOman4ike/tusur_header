@@ -11,15 +11,21 @@
 
 === Подключение
 
-Добавляем <code>gem 'tusur_header'</code> в Gemfile, запускаем <code>$ bundle istall</code>
+1 Добавляем в Gemfile
 
-Подключаем партиал
+  gem 'tusur_header', :git => 'git://github.com/openteam-tusur/tusur_header'
+  
+запускаем bundle
+
+  $ bundle install
+
+2 Подключаем партиал
 
   <%= render :partial => 'tusur_header' %>
 
 например в <code>app/views/layouts/application.html.erb</code>
 
-Подключаем стили в <code>sass</code>
+3 Подключаем стили в <code>sass</code>
 
   @import 'tusur_header'
   
@@ -27,7 +33,7 @@
 
   *= require tusur_header
   
-Подключаем <code>javascript</code>
+4 Подключаем <code>javascript</code>
 
   //= require tusur_header
   
@@ -42,6 +48,13 @@
   app/views/application/_tusur_header.html.erb
   
 в файле все помечено комментариями, так что думаю разберетесь
+
+=== Настройка общего списка сайтов
+
+* клонируем <code>git clone git@github.com:openteam-tusur/tusur_header.git</code>
+* добавляем/удаляем/изменяем файл <code>config/sites.yml</code>
+* <code>git commit -am 'update sites.yml'</code>
+* <code>git push</code>
 
 ==== License
 
