@@ -1,3 +1,6 @@
+require 'bootstrap-sass'
+require 'jquery-rails'
+
 module TusurHeader
   class Engine < ::Rails::Engine
     def self.sites
