@@ -1,0 +1,27 @@
+tusur:
+  title: 'Официальный информационный портал университета'
+  link: 'http://www.tusur.ru'
+
+phones:
+  title: 'Телефонный справочник'
+  link: 'http://09.tusur.ru'
+
+abiturient:
+  title: 'Абитуриентам'
+  link: 'http://abiturient.tusur.ru'
+
+edu:
+  title: 'Научно-образовательный портал'
+  link: 'http://edu.tusur.ru'
+
+timetable:
+  title: 'Электронное расписание'
+  link: 'http://timetable.tusur.ru'
+
+attendance:
+  title: 'Журнал посещаемости'
+  link: 'http://attendance.tusur.ru'
+
+radioelektronik:
+  title: 'Газета &laquo;Радиоэлектроник&raquo;'
+  link: 'http://re.tusur.ru'

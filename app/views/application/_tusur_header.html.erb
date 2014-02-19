@@ -21,8 +21,9 @@
           <li class='dropdown'>
             <a href='/' class='dropdown-toggle' data-toggle='dropdown'>Сайты ТУСУР<b class='caret'></b></a>
             <ul class='dropdown-menu'>
-              <li><a href='http://www.tusur.ru'>Официальный информационный портал университета</a></li>
-              <li><a href='http://re.tusur.ru'>Газета &laquo;Радиоэлектроник&raquo;</a></li>
+              <% TusurHeader::Engine.sites.each do |slug, site| %>
+                <li><%= link_to site['title'].html_safe, site['link'] %></li>
+              <% end %>
             </ul>
           </li>
         </ul>
