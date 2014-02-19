@@ -1,3 +1,48 @@
-= TusurHeader
+== TusurHeader
+
+=== Зависимости
+
+  bootstrap-sass (~> 3.1.1)
+  coffee-rails (~> 3.2.2)
+  compass-rails (~> 1.1.3)
+  jquery-rails (~> 2.1.4)
+  sass-rails (~> 3.2.6)
+
+
+=== Подключение
+
+Добавляем <code>gem 'tusur_header'</code> в Gemfile, запускаем <code>$ bundle istall</code>
+
+Подключаем партиал
+
+  <%= render :partial => 'tusur_header' %>
+
+например в <code>app/views/layouts/application.html.erb</code>
+
+Подключаем стили в <code>sass</code>
+
+  @import 'tusur_header'
+  
+или в <code>css</code>
+
+  *= require tusur_header
+  
+Подключаем <code>javascript</code>
+
+  //= require tusur_header
+  
+=== Настройка партиала
+
+Запускаем генератор
+
+  $ rails g tusur_header:install
+  
+Редактируем скопированный файл
+
+  app/views/application/_tusur_header.html.erb
+  
+в файле все помечено комментариями, так что думаю разберетесь
+
+==== License
 
 This project rocks and uses MIT-LICENSE.
