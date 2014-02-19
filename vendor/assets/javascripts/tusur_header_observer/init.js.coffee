@@ -1,8 +1,12 @@
 @init_tusur_header_observer = ->
+
   first_menu = $('#menu_first')
   second_menu = $('#menu_second')
   arrow = $('.arrow_box', first_menu)
-  site_menu = $('ul.nav.navbar-nav', first_menu)[1]
+  dropdown_menus = $('ul.nav.navbar-nav', first_menu).not('.navbar-right')
+  return true if dropdown_menus.length < 2
+
+  site_menu = dropdown_menus[1]
   site_menu_caret = $('.caret', site_menu)
   site_menu_toggle = $('.dropdown-toggle', site_menu)
   site_menu_toggle.click (e) ->
