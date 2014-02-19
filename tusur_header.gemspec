@@ -13,12 +13,13 @@ Gem::Specification.new do |s|
   s.summary     = ''
   s.description = ''
 
-  s.files = Dir['{lib,test,vendor}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.rdoc'] - ['Gemfile.lock']
-  s.require_path = 'lib'
+  s.files = `git ls-files`.split("\n")
 
-  s.add_development_dependency 'rails', '~> 3.2.15'
   s.add_development_dependency 'bundler'
+  s.add_development_dependency 'rails', '~> 3.2.15'
   s.add_development_dependency 'jquery-rails', '~> 2.1.4'
+  s.add_development_dependency 'coffee-rails', '~> 3.2.2'
+  s.add_development_dependency 'compass-rails', '~> 1.1.3'
   s.add_development_dependency 'sass-rails', '>= 3.2'
   s.add_development_dependency 'bootstrap-sass', '~> 3.1.1'
 

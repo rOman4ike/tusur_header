@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Dummy</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= render :partial => 'tusur_header' %>
-
-<%= yield %>
-
-</body>
+<!DOCTYPE HTML>
+<html lang='ru'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Dummy</title>
+    <%= stylesheet_link_tag    'application', :media => 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render :partial => 'tusur_header' %>
+    <div class='content'>
+      <%= yield %>
+    </div>
+  </body>
 </html>
