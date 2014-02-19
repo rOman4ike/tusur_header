@@ -33,9 +33,6 @@
         &:hover
           text-decoration: underline
 
-  #menu_first
-    height: 40px
-
   #site-menu
     .active
       background-color: #428bca
@@ -44,27 +41,28 @@
         &:focus
           background-color: #428bca
 
-  .arrow_box
+  .has_arrow
     position: relative
-    background: #005bae
+
+    &:after
+      display: none
+      bottom: 0
+      left: 50%
+      border: solid transparent
+      content: ' '
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-color: rgba(255, 255, 255, 0)
+      border-bottom-color: #005bae
+      border-width: 15px 9px 6px 9px
+      margin-left: -9px
+      z-index: 1100
 
   .navbar-collapse
     border-top: none
     +box-shadow(none)
-
-  .arrow_box:after
-    bottom: 100%
-    left: 465px
-    border: solid transparent
-    content: ' '
-    height: 0
-    width: 0
-    position: absolute
-    pointer-events: none
-    border-color: rgba(255, 255, 255, 0)
-    border-bottom-color: #005bae
-    border-width: 15px 9px 6px 9px
-    z-index: 1100
 
   .first-menu-part
     float: left
@@ -107,6 +105,9 @@
       margin-left: 3px
       margin-top: 3px
 
+      &:hover
+        text-decoration: none
+
     .form-control
       width: 180px !important
 
@@ -139,6 +140,9 @@
     .disabled
       cursor: default !important
 
+      &.has_arrow:after
+        display: block
+
     .dropdown-toggle
       height: 40px
       padding: 10px 15px 0 15px
@@ -169,13 +173,6 @@
         height: 30px
         width: 219px
 
-    .nav.navbar-nav.navbar-right
-      border-left: solid 1px #ccc
-      border-right: none
-
-      a
-        text-decoration: none
-
     .nav.navbar-nav
       border-right: solid 1px #ccc
 
@@ -187,8 +184,9 @@
 
         .dropdown-menu
           +border-radius(0)
+          +box-shadow(none)
           background: #e4e6e8
-          border-top: 0px
+          border-top: 0
           left: -1px
 
           li
@@ -201,6 +199,24 @@
 
             &.active a
               color: #fff
+
+      &.navbar-right
+        border-left: solid 1px #ccc
+        border-right: none
+
+        a
+          text-decoration: none
+
+        &:last-child
+          margin-right: 0
+
+        .open
+          .dropdown-menu
+            +border-radius(0)
+            +box-shadow(none)
+            background: #e4e6e8
+            border-top: 0
+            left: auto
 
     li
       a
