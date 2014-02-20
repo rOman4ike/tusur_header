@@ -1,3 +1,4 @@
+require 'compass-rails'
 require 'bootstrap-sass'
 require 'jquery-rails'
 
