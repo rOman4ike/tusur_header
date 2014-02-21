@@ -1,4 +1,6 @@
-//= require bootstrap
+//= require bootstrap/button
+//= require bootstrap/dropdown
+
 //= require tusur_header_observer
 
 $(function() {
