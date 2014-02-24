@@ -47,7 +47,6 @@
           text-decoration: underline
 
   #site-menu
-    border-right: 1px solid #ccc
 
     .active
       background-color: #428bca
@@ -127,6 +126,7 @@
 
     .form-control
       width: 180px !important
+      height: 18px
 
     .navbar-collapse.collapse
       .official-documents
@@ -161,8 +161,11 @@
         display: block
 
     .dropdown-toggle
+      +box-sizing(border-box)
       height: 40px
+      line-height: 20px
       padding: 10px 15px 0 15px
+      text-decoration: none
 
       &:hover
         cursor: pointer
@@ -187,9 +190,10 @@
 
       .navbar-brand
         background: image_url('tusur_logotype.png') no-repeat
-        height: 30px
-        margin-top: 8px
+        height: 24px
         width: 219px
+        margin-top: 7px
+        padding: 0
 
     .nav.navbar-nav
       border-right: solid 1px #ccc
