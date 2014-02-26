@@ -38,6 +38,7 @@
       arrow.show()
       first_menu.css('border-bottom', 'none')
       site_menu_caret.hide()
+      site_menu_toggle.click() if site_menu_toggle.parent().hasClass('open')
       site_menu_toggle.addClass('disabled')
 
   true
