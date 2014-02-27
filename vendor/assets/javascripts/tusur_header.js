@@ -1,5 +1,7 @@
 //= require bootstrap/button
 //= require bootstrap/dropdown
+//= require bootstrap/collapse
+//= require bootstrap/transition
 
 //= require tusur_header_observer
 
