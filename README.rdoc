@@ -14,7 +14,7 @@
 1 Добавляем в Gemfile
 
   gem 'tusur_header', :git => 'git://github.com/openteam-tusur/tusur_header'
-  
+
 запускаем bundle
 
   $ bundle install
@@ -28,25 +28,25 @@
 3 Подключаем стили в <code>sass</code>
 
   @import 'tusur_header'
-  
+
 или в <code>css</code>
 
   *= require tusur_header
-  
+
 4 Подключаем <code>javascript</code>
 
   //= require tusur_header
-  
+
 === Настройка партиала
 
 Запускаем генератор
 
   $ rails g tusur_header:install
-  
+
 Редактируем скопированный файл
 
   app/views/application/_tusur_header.html.erb
-  
+
 в файле все помечено комментариями, так что думаю разберетесь
 
 === Настройка общего списка сайтов
@@ -55,6 +55,13 @@
 * добавляем/удаляем/изменяем файл <code>config/sites.yml</code>
 * <code>git commit -am 'update sites.yml'</code>
 * <code>git push</code>
+
+=== Tipps
+
+Не забываем добавлять в layout поддержку мобильных устройств:
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 ==== License
 

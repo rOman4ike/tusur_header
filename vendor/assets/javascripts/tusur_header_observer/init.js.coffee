@@ -2,7 +2,11 @@
 
   first_menu = $('#menu_first')
   second_menu = $('#menu_second')
-  arrow = $('.arrow_box', first_menu)
+
+  #для мобилок
+  if window.innerWidth < 750
+    $('.has_arrow', first_menu).removeClass('has_arrow')
+
   dropdown_menus = $('ul.nav.navbar-nav', first_menu).not('.navbar-right')
   return true if dropdown_menus.length < 2
 
@@ -29,13 +33,11 @@
 
   $(window).scroll () ->
     if $(window).scrollTop() > 0
-      arrow.hide()
       first_menu.css('border-bottom', 'solid 1px #ccc')
       site_menu_caret.show()
       site_menu_toggle.removeClass('disabled')
 
     if $(window).scrollTop() == 0
-      arrow.show()
       first_menu.css('border-bottom', 'none')
       site_menu_caret.hide()
       site_menu_toggle.click() if site_menu_toggle.parent().hasClass('open')
