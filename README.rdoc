@@ -56,6 +56,12 @@
 * <code>git commit -am 'update sites.yml'</code>
 * <code>git push</code>
 
+=== Кол-во непрочитанных сообщений
+
+* в Settings положить profile.url
+* добавляем в модель User has_remote_notifications
+* где нужно используем метод get_notification_count (current_user.get_notification_count, возвращает Integer)
+
 === Tipps
 
 Не забываем добавлять в layout поддержку мобильных устройств:
