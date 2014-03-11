@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'compass-rails'
   s.add_runtime_dependency 'jquery-rails'
   s.add_runtime_dependency 'sass-rails', '>= 3.2'
+  s.add_runtime_dependency 'rest-client'
 
   s.rubyforge_project = s.name
 end
