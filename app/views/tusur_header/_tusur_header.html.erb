@@ -1,0 +1,65 @@
+<div class='tusur_header_wrapper'>
+
+  <div class='navbar navbar-inverse navbar-fixed-top' role='navigation' id='menu_first'>
+    <div class='container'>
+
+      <!-- Для мобилочек -->
+      <div class='navbar-header'>
+        <button type='button' class='navbar-toggle mobile-toggler' data-toggle='collapse' data-target='#site-menu'>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+        <a class='navbar-brand' href='/'></a>
+      </div>
+      <!-- / Для мобилочек -->
+
+      <div class='navbar-collapse collapse' id='site-menu'>
+
+        <!-- Первое левое выпадающее меню -->
+        <ul class='nav navbar-nav'>
+          <li class='dropdown'>
+            <a href='/' class='dropdown-toggle' data-toggle='dropdown'>Сайты ТУСУР<b class='caret'></b></a>
+            <ul class='dropdown-menu'>
+              <% TusurHeader::Engine.sites.each do |slug, site| %>
+                <li><%= link_to site['title'].html_safe, site['link'] %></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+        <!-- / Первое левое выпадающее меню -->
+
+        <!-- Второе левое выпадающее меню -->
+        <% if content_for?(:tusur_header_second_menu) %>
+          <%= yield :tusur_header_second_menu %>
+        <% end %>
+        <!-- / Второе левое выпадающее меню -->
+
+        <!-- Правое выпадающее меню -->
+        <% if content_for?(:tusur_header_auth_block) %>
+          <%= yield :tusur_header_auth_block %>
+        <% end %>
+        <!-- / Правое выпадающее меню -->
+
+      </div>
+    </div>
+  </div>
+
+  <div class='navbar navbar-inverse navbar-second-menu' role='navigation' id='menu_second'>
+    <div class='container'>
+
+      <!-- Левая часть второй линии меню -->
+      <% if content_for?(:tusur_header_second_menu_left) %>
+        <%= yield :tusur_header_second_menu_left %>
+      <% end %>
+      <!-- / Левая часть второй линии меню -->
+
+      <!-- Правая часть второй линии меню -->
+      <% if content_for?(:tusur_header_second_menu_right) %>
+        <%= yield :tusur_header_second_menu_right %>
+      <% end %>
+      <!-- / Правая часть второй линии меню -->
+
+    </div>
+  </div>
+</div>
