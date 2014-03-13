@@ -21,9 +21,17 @@
 
 2 Подключаем партиал
 
-  <%= render :partial => 'tusur_header' %>
+  <%= render :partial => 'tusur_header/tusur_header' %>
 
 например в <code>app/views/layouts/application.html.erb</code>
+
+2.1 Определям что будет рендериться с помощью тега content_for
+
+2.2 Доступные yield
+<code>:tusur_header_second_menu
+:tusur_header_auth_block
+:tusur_header_second_menu_left
+:tusur_header_second_menu_right</code>
 
 3 Подключаем стили в <code>sass</code>
 
@@ -36,18 +44,6 @@
 4 Подключаем <code>javascript</code>
 
   //= require tusur_header
-
-=== Настройка партиала
-
-Запускаем генератор
-
-  $ rails g tusur_header:install
-
-Редактируем скопированный файл
-
-  app/views/application/_tusur_header.html.erb
-
-в файле все помечено комментариями, так что думаю разберетесь
 
 === Настройка общего списка сайтов
 
