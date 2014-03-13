@@ -269,3 +269,20 @@
     li
       a
         color: #000
+
+#menu_mobile
+  display: none
+
+@media (max-width: 768px)
+  #menu_mobile
+    display: block
+    border-bottom: 1px solid #ccc
+
+    .active
+      background: #fff !important
+
+  .tusur_header_wrapper
+    height: 40px
+
+  #menu_first, #menu_second
+    display: none
