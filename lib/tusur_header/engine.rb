@@ -1,6 +1,7 @@
 require 'compass-rails'
 require 'bootstrap-sass'
 require 'jquery-rails'
+require 'rest_client'
 
 module TusurHeader
   class Engine < ::Rails::Engine
@@ -20,10 +21,18 @@ module TusurHeader
 
     config.to_prepare do
       ActiveRecord::Base.class_eval do
-        def self.has_remote_notifications
-          define_method :get_notification_count do
-            response = RestClient.get("#{Settings['profile.url']}/api/notifications", :params => { :uid => self.uid }, :content_type => :json, :accept => :json)
-            response.body['notifications']
+        def self.has_remote_profile
+          define_method :remote_profile do |kind|
+            response = RestClient.get("#{Settings['profile.url']}/api/#{kind}", :params => { :uid => self.uid }, :content_type => :json, :accept => :json)
+            JSON.parse(response)[kind]
+          end
+
+          define_method :get_notifications do
+            @get_notification_count ||= remote_profile('notifications').to_i
+          end
+
+          define_method :get_menu do
+            @get_menu ||= remote_profile('menu')
           end
         end
       end
