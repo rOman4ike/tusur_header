@@ -32,7 +32,7 @@ module TusurHeader
           end
 
           define_method :get_menu do
-            @get_menu ||= remote_profile('menu')
+            @get_menu ||= (remote_profile('menu') || [])
           end
         end
       end
