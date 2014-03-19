@@ -31,6 +31,10 @@
   site_menu_caret.hide()
   site_menu_toggle.addClass('disabled')
 
+  $('.auth_block .dropdown').click ->
+    cloud = $('.ntf_cloud')
+    cloud.hide().html('') if cloud.is(':visible')
+
   $(window).scroll () ->
     if $(window).scrollTop() > 0
       first_menu.css('border-bottom', 'solid 1px #ccc')
