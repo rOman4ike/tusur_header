@@ -1,0 +1,72 @@
+.error-page
+  .tusur_header_wrapper
+    height: 40px
+
+  .navbar
+    border-bottom: 1px solid #ccc !important
+
+  .error
+    margin: 160px auto
+    width: 360px
+
+    .error-image
+      margin: 0 auto 25px auto
+
+      &.error-403
+        background: image_url('403.png') no-repeat center center
+        height: 77px
+        width: 188px
+
+      &.error-404
+        background: image_url('404.png') no-repeat center center
+        height: 75px
+        width: 196px
+
+      &.error-500
+        background: image_url('500.png') no-repeat center center
+        height: 77px
+        width: 188px
+
+      &.error-502
+        background: image_url('502.png') no-repeat center center
+        height: 77px
+        width: 184px
+
+    .error-text
+      border: 1px solid #cecece
+      padding: 20px 10px
+      position: relative
+      text-align: center
+
+      &:after, &:before
+        bottom: 100%
+        left: 50%
+        border: solid transparent
+        content: " "
+        height: 0
+        width: 0
+        position: absolute
+        pointer-events: none
+
+      &:after
+        border-color: rgba(255, 255, 255, 0)
+        border-bottom-color: #ffffff
+        border-width: 17px
+        margin-left: -17px
+
+      &:before
+        border-color: rgba(206, 206, 206, 0)
+        border-bottom-color: #cecece
+        border-width: 18px
+        margin-left: -18px
+
+      p
+        margin: 0 0 10px 0
+
+      p:last-child
+        margin: 0
+
+@media (max-width: 768px)
+  .error
+    margin: 40px auto !important
+    width: 280px !important
