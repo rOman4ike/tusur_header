@@ -12,10 +12,6 @@ module TusurHeader
         copy_file "502.html", "public/502.html"
       end
 
-      def copy_assets
-        copy_file "error.css", "public/error.css"
-        copy_file "error.js", "public/error.js"
-      end
     end
   end
 end
