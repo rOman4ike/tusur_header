@@ -7,6 +7,7 @@
   compass-rails
   jquery-rails
   sass-rails (>= 3.2)
+  stop_ie (>= 0.1.4)
 
 
 === Подключение
@@ -32,6 +33,10 @@
 :tusur_header_auth_block
 :tusur_header_second_menu_left
 :tusur_header_second_menu_right</code>
+
+2.2.1
+<code>:stop_ie</code> 
+подключаем в footer чтобы включить проверку браузера на IE > 8
 
 3 Подключаем стили в <code>sass</code>
 
