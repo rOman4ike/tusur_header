@@ -1,0 +1,37 @@
+.pagination
+  text-align: center
+
+  span, a
+    +inline-block
+    width: 30px
+    padding: 4px 0 0 0
+    height: 30px
+    text-decoration: none
+
+    a
+      padding: 0
+      height: 26px
+
+  .page
+    background: white
+
+    &:hover
+      background: #a8d3f3
+
+  .current
+    background: #1b89c6
+    color: white
+
+    &:hover
+      background: #1b89c6
+
+  span.next, span.prev
+    background: #d1d5d4
+    color: #989898
+    font-weight: bold
+
+  a.next, a.prev
+    background: #a7d3ee
+    color: #1787c6
+    font-weight: bold
+
