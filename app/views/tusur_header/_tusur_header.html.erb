@@ -5,6 +5,17 @@
   <![endif]-->
 <% end %>
 
+<% content_for :flash_alerts do %>
+  <div class="row alert-container">
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name %> alert-dismissible col-sm-6 col-sm-offset-6" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <%= msg %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 <div class='tusur_header_wrapper'>
 
   <div class='navbar navbar-inverse navbar-fixed-top navbar-desktop' role='navigation' id='menu_first'>
