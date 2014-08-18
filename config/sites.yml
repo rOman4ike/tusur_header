@@ -15,7 +15,7 @@ edu:
   link: 'http://edu.tusur.ru'
 
 timetable:
-  title: 'Электронное расписание'
+  title: 'Расписание занятий'
   link: 'http://timetable.tusur.ru'
 
 attendance:
