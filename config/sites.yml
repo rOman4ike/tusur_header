@@ -8,19 +8,19 @@ phones:
 
 abiturient:
   title: 'Абитуриентам'
-  link: 'http://abiturient.tusur.ru'
+  link: 'https://abiturient.tusur.ru'
 
 edu:
   title: 'Научно-образовательный портал'
-  link: 'http://edu.tusur.ru'
+  link: 'https://edu.tusur.ru'
 
 timetable:
   title: 'Расписание занятий'
-  link: 'http://timetable.tusur.ru'
+  link: 'https://timetable.tusur.ru'
 
 attendance:
   title: 'Журнал посещаемости'
-  link: 'http://attendance.tusur.ru'
+  link: 'https://attendance.tusur.ru'
 
 radioelektronik:
   title: 'Газета &laquo;Радиоэлектроник&raquo;'
