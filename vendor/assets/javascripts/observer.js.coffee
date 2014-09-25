@@ -1,5 +1,4 @@
-@init_tusur_header_observer = ->
-
+$ ->
   first_menu = $('#menu_first')
   second_menu = $('#menu_second')
 
@@ -36,22 +35,16 @@
     cloud.hide().html('') if cloud.is(':visible')
 
   $(window).scroll () ->
-    footer_height = $('#footer').height()
-    new_footer_height = footer_height + 40
 
     if $(window).scrollTop() > 0
       first_menu.css('border-bottom', 'solid 1px #ccc')
       site_menu_caret.show()
       site_menu_toggle.removeClass('disabled')
 
-      $('#wrapper').css('margin-bottom', "0px")
-
     if $(window).scrollTop() == 0
       first_menu.css('border-bottom', 'none')
       site_menu_caret.hide()
       site_menu_toggle.click() if site_menu_toggle.parent().hasClass('open')
       site_menu_toggle.addClass('disabled')
-
-      $('#wrapper').css('margin-bottom', "-#{new_footer_height}px")
 
   true
