@@ -26,6 +26,8 @@ module TusurHeader
   end
 
   class Links
+    include ActionView::Helpers
+
     attr_accessor :user
     delegate :uid, :teacher?, :student?, :app_name, :to => :user
 
@@ -36,7 +38,11 @@ module TusurHeader
     def links
       return [] unless user
 
-      p links_data.map { |e| Link.new e[:title], e[:url], e[:options], e[:separator] }
+      links_data.map { |e| Link.new e[:title], e[:url], e[:options], e[:separator] }
+    end
+
+    def list
+      content_tag :ul, links.join.html_safe, :class => 'dropdown-menu'
     end
 
     def system_infos
@@ -67,8 +73,8 @@ module TusurHeader
 
                         array << { :separator => true }
 
-                        array << { :title => 'Редактировать профиль', :url => 'http://profile.openteam.ru/users/edit' }
-                        array << { :title => 'Выход', :url => 'http://ya.ru', :options => { :method => :delete } }
+                        array << { :title => 'Редактировать профиль', :url => edit_user_link }
+                        array << { :title => 'Выход', :url => sign_out_link, :options => { :method => :delete } }
 
                         array
                       end
@@ -78,6 +84,10 @@ module TusurHeader
   module MenuLinks
     def menu_links
       Links.new(self).links
+    end
+
+    def menu_list
+      Links.new(self).list
     end
   end
 end
