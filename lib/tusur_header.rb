@@ -1,2 +1,2 @@
 require 'tusur_header/engine'
-require 'tusur_header/user_menu'
+require 'tusur_header/menu_links'

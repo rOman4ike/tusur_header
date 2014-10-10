@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split("\n")
 
   s.add_development_dependency 'bundler'
-  s.add_development_dependency 'rails', '~> 3.2.15'
+  s.add_dependency 'rails', '~> 4.0'
 
   s.add_runtime_dependency 'bootstrap-sass', '~> 3.1.1'
   s.add_runtime_dependency 'coffee-rails'
