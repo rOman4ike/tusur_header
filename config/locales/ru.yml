@@ -1,3 +1,9 @@
 ru:
   remote_system:
-    attendance: Журнал успеваемости
+    abiturient:   Сайт для абитуриента ТУСУР
+    attendance:   Журнал успеваемости
+    checkpoint:   Ввод успеваемости
+    directory:    Телефонный справочник
+    gpo:          Групповое проектное обучение
+    timetable:    Расписание занятий
+    work_program: Генератор рабочих программ

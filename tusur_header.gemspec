@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'bootstrap-sass', '~> 3.1.1'
   s.add_runtime_dependency 'coffee-rails'
+  s.add_runtime_dependency 'configliere'
   s.add_runtime_dependency 'compass-rails'
   s.add_runtime_dependency 'jquery-rails'
   s.add_runtime_dependency 'sass-rails', '>= 3.2'

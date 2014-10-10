@@ -49,12 +49,26 @@ module TusurHeader
       RedisUserConnector.get(user.id).select{|k,_| k =~ %r((?<!#{app_name})_info)}
     end
 
+    def profile_url
+      'http://profile.tusur.ru'
+    end
+
     def edit_user_link
-      'http://profile.openteam.ru/users/edit'
+      Settings['profile.url'] || profile_url
+    end
+
+    def edit_user_url
+      edit_user_link + '/users/edit'
     end
 
     def sign_out_link
-      'http://profile.openteam.ru/users/sign_out'
+      Settings['profile.url'] || profile_url
+    end
+
+    def sign_out_url
+      path = "/users/sign_out?redirect_url=#{Settings['app.url']}"
+
+      sign_out_link + path
     end
 
     def links_data
@@ -73,8 +87,8 @@ module TusurHeader
 
                         array << { :separator => true }
 
-                        array << { :title => 'Редактировать профиль', :url => edit_user_link }
-                        array << { :title => 'Выход', :url => sign_out_link, :options => { :method => :delete } }
+                        array << { :title => 'Редактировать профиль', :url => edit_user_url }
+                        array << { :title => 'Выход', :url => sign_out_url, :options => { :method => :delete } }
 
                         array
                       end
