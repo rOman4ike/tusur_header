@@ -46,7 +46,7 @@ module TusurHeader
     end
 
     def system_infos
-      RedisUserConnector.get(user.id).select{|k,_| k =~ %r((?<!#{app_name})_info)}
+      RedisUserConnector.get(user.id).select { |k,_| k =~ /_info/ }
     end
 
     def profile_url
@@ -71,21 +71,59 @@ module TusurHeader
       sign_out_link + path
     end
 
+    # TODO: remove
+    def example_system_infos
+      {
+        :timetable_info => {
+          :url => {
+            :title => 'TITLE #1',
+            :link => 'http://url1.com'
+          },
+
+          :my_url => {
+            :title => 'MY TITLE #1',
+            :link => 'http://my_url1.com'
+          }
+        }.to_json,
+
+        :attendance_info => {
+          :url => {
+            :title => 'TITLE #2',
+            :link => 'http://url2.com'
+          },
+
+          :my_url => {
+            :title => 'MY TITLE #2',
+            :link => 'http://my_url2.com'
+          }
+        }.to_json
+      }
+    end
+
+    def links_from_system_infos(key)
+      system_infos.inject([]) do |array, data|
+        array += JSON.parse(data.last).select { |k, _| k.to_s == key }.values
+      end
+    end
+
     def links_data
       @links_hash ||= begin
                         array = []
 
-                        system_infos.each do |system, info|
-                          info_hash = JSON.parse(info)
-                          next if info_hash['permissions'].empty?
+                        if links_from_system_infos('my_url').any?
+                          links_from_system_infos('my_url').each do |elem|
+                            array << { :title => elem['title'], :url => elem['link'] }
+                          end
 
-                          title = I18n.t("remote_system.#{system.split('_').first}")
-                          url = info_hash['url']
-
-                          array << {:title => title, :url => url}
+                          array << { :separator => true }
                         end
 
-                        array << { :separator => true }
+                        if links_from_system_infos('url').any?
+                          links_from_system_infos('url').each do |elem|
+                            array << { :title => elem['title'], :url => elem['link'] }
+                          end
+                          array << { :separator => true }
+                        end
 
                         array << { :title => 'Редактировать профиль', :url => edit_user_url }
                         array << { :title => 'Выход', :url => sign_out_url, :options => { :method => :delete } }
