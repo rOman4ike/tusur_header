@@ -9,7 +9,7 @@ module TusurHeader
     end
 
     def to_s
-      separator? ? separator : link
+      (separator? ? separator : link) rescue ''
     end
 
     def link
@@ -50,7 +50,7 @@ module TusurHeader
     end
 
     def profile_url
-      'http://profile.tusur.ru'
+      'https://profile.tusur.ru'
     end
 
     def edit_user_link
