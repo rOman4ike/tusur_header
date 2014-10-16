@@ -118,6 +118,8 @@ module TusurHeader
                           array << { :separator => true }
                         end
 
+                        array << { :title => 'Кабинет ТУСУР', :url => profile_url+'/' }
+
                         if links_from_system_infos('url').any?
                           links_from_system_infos('url').each do |elem|
                             array << { :title => elem['title'], :url => elem['link'] }
