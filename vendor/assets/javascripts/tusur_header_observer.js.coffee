@@ -40,6 +40,7 @@ $ ->
       first_menu.css('border-bottom', 'solid 1px #ccc')
       site_menu_caret.show()
       site_menu_toggle.removeClass('disabled')
+      site_menu_toggle.dropdown()
 
     if $(window).scrollTop() == 0
       first_menu.css('border-bottom', 'none')
@@ -47,4 +48,4 @@ $ ->
       site_menu_toggle.click() if site_menu_toggle.parent().hasClass('open')
       site_menu_toggle.addClass('disabled')
 
-  true
+  return
