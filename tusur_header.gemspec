@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'bundler'
   s.add_dependency 'rails', '~> 4.0'
 
-  s.add_runtime_dependency 'bootstrap-sass', '~> 3.1.1'
+  s.add_runtime_dependency 'bootstrap-sass'
   s.add_runtime_dependency 'coffee-rails'
   s.add_runtime_dependency 'configliere'
   s.add_runtime_dependency 'compass-rails'
