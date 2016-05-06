@@ -1,6 +1,6 @@
 tusur:
-  title: 'Официальный информационный портал университета'
-  link: 'http://www.tusur.ru'
+  title: 'Официальный сайт университета'
+  link: 'https://tusur.ru'
 
 phones:
   title: 'Телефонный справочник'
@@ -10,18 +10,30 @@ abiturient:
   title: 'Абитуриентам'
   link: 'https://abiturient.tusur.ru'
 
-edu:
-  title: 'Научно-образовательный портал'
-  link: 'https://edu.tusur.ru'
+magistrant:
+  title: 'Магистрантам'
+  link: 'https://magistrant.tusur.ru'
 
 timetable:
   title: 'Расписание занятий'
   link: 'https://timetable.tusur.ru'
 
+edu:
+  title: 'Научно-образовательный портал'
+  link: 'https://edu.tusur.ru'
+
 attendance:
   title: 'Журнал посещаемости'
   link: 'https://attendance.tusur.ru'
 
+gpo:
+  title: 'Групповое проектное обучение'
+  link: 'https://gpo.tusur.ru'
+
+workprogram:
+  title: 'Генератор рабочих программ'
+  link: 'https://workprogram.tusur.ru'
+
 radioelektronik:
-  title: 'Газета &laquo;Радиоэлектроник&raquo;'
+  title: 'Газета «Радиоэлектроник»'
   link: 'http://re.tusur.ru'
