@@ -17,47 +17,49 @@
 <% end %>
 
 <div class='tusur_header_wrapper'>
+  <% begin %>
+    <%= render_cdn :header %>
+  <% rescue %>
+    <div class='navbar navbar-inverse navbar-fixed-top navbar-desktop' role='navigation' id='menu_first'>
+      <div class='container'>
 
-  <div class='navbar navbar-inverse navbar-fixed-top navbar-desktop' role='navigation' id='menu_first'>
-    <div class='container'>
+        <div class='navbar-header'>
+          <a class='navbar-brand' href='/'></a>
+        </div>
 
-      <div class='navbar-header'>
-        <a class='navbar-brand' href='/'></a>
-      </div>
+        <div class='navbar-collapse collapse'>
 
-      <div class='navbar-collapse collapse'>
+          <!-- Первое левое выпадающее меню -->
+          <!--noindex-->
+          <ul class='nav navbar-nav'>
+            <li class='dropdown'>
+              <a href='/' class='dropdown-toggle' data-toggle='dropdown'>Сайты ТУСУР<b class='caret'></b></a>
+              <ul class='dropdown-menu'>
+                <% TusurHeader::Engine.sites.each do |slug, site| %>
+                  <li><%= link_to site['title'].html_safe, site['link'] %></li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+          <!--/noindex-->
+          <!-- / Первое левое выпадающее меню -->
 
-        <!-- Первое левое выпадающее меню -->
-        <!--noindex-->
-        <ul class='nav navbar-nav'>
-          <li class='dropdown'>
-            <a href='/' class='dropdown-toggle' data-toggle='dropdown'>Сайты ТУСУР<b class='caret'></b></a>
-            <ul class='dropdown-menu'>
-              <% TusurHeader::Engine.sites.each do |slug, site| %>
-                <li><%= link_to site['title'].html_safe, site['link'] %></li>
-              <% end %>
-            </ul>
-          </li>
-        </ul>
-        <!--/noindex-->
-        <!-- / Первое левое выпадающее меню -->
+          <!-- Второе левое выпадающее меню -->
+          <% if content_for?(:tusur_header_second_menu) %>
+            <%= yield :tusur_header_second_menu %>
+          <% end %>
+          <!-- / Второе левое выпадающее меню -->
 
-        <!-- Второе левое выпадающее меню -->
-        <% if content_for?(:tusur_header_second_menu) %>
-          <%= yield :tusur_header_second_menu %>
-        <% end %>
-        <!-- / Второе левое выпадающее меню -->
+          <!-- Правое выпадающее меню -->
+          <% if content_for?(:tusur_header_auth_block) %>
+            <%= yield :tusur_header_auth_block %>
+          <% end %>
+          <!-- / Правое выпадающее меню -->
 
-        <!-- Правое выпадающее меню -->
-        <% if content_for?(:tusur_header_auth_block) %>
-          <%= yield :tusur_header_auth_block %>
-        <% end %>
-        <!-- / Правое выпадающее меню -->
-
+        </div>
       </div>
     </div>
-  </div>
-
+  <% end %>
   <div class='navbar navbar-inverse navbar-second-menu' role='navigation' id='menu_second'>
     <div class='container'>
 

@@ -3,6 +3,7 @@ require 'bootstrap-sass'
 require 'jquery-rails'
 require 'rest_client'
 require 'stop_ie'
+require 'tusur_cdn'
 
 module TusurHeader
   class Engine < ::Rails::Engine
@@ -41,4 +42,3 @@ module TusurHeader
 
   end
 end
-

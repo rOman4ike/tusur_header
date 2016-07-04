@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'bundler'
   s.add_dependency 'rails', '~> 4.0'
+  s.add_dependency 'tusur_cdn'
 
   s.add_runtime_dependency 'bootstrap-sass'
   s.add_runtime_dependency 'coffee-rails'
