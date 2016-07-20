@@ -18,7 +18,7 @@
 
 <div class='tusur_header_wrapper'>
   <% begin %>
-    <%= render_cdn :header %>
+    <%= render_cdn('header').gsub('&quot;', '"').gsub('&gt;', '>').html_safe %>
   <% rescue %>
     <div class='navbar navbar-inverse navbar-fixed-top navbar-desktop' role='navigation' id='menu_first'>
       <div class='container'>
