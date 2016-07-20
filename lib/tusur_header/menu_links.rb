@@ -111,7 +111,7 @@ module TusurHeader
                         array = []
 
                         if links_from_system_infos('my_url').any?
-                          links_from_system_infos('my_url').each do |elem|
+                          links_from_system_infos('my_url').reject{ |elem| elem['link'].blank? }.sort{ |a, b| a['title'] <=> b['title'] }.each do |elem|
                             array << { :title => elem['title'], :url => elem['link'] }
                           end
 
@@ -121,7 +121,7 @@ module TusurHeader
                         array << { :title => 'Кабинет ТУСУР', :url => profile_url+'/' }
 
                         if links_from_system_infos('url').any?
-                          links_from_system_infos('url').each do |elem|
+                          links_from_system_infos('url').reject{ |elem| elem['link'].blank? }.sort{ |a, b| a['title'] <=> b['title'] }.each do |elem|
                             array << { :title => elem['title'], :url => elem['link'] }
                           end
                           array << { :separator => true }
