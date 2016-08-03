@@ -21,7 +21,7 @@ module TusurHeader
     end
 
     def separator
-      content_tag :li, nil, :class => 'divider'
+      content_tag :li, nil, class: 'divider'
     end
   end
 
@@ -29,7 +29,7 @@ module TusurHeader
     include ActionView::Helpers
 
     attr_accessor :user
-    delegate :uid, :teacher?, :student?, :app_name, :to => :user
+    delegate :uid, :teacher?, :student?, :app_name, to: :user
 
     def initialize(user)
       @user = user
@@ -42,7 +42,7 @@ module TusurHeader
     end
 
     def list
-      content_tag :ul, links.join.html_safe, :class => 'dropdown-menu'
+      content_tag :ul, links.join.html_safe, class: 'dropdown-menu'
     end
 
     def system_infos
@@ -66,38 +66,7 @@ module TusurHeader
     end
 
     def sign_out_url
-      path = "/users/sign_out?redirect_url=#{Settings['app.url']}"
-
-      sign_out_link + path
-    end
-
-    # TODO: remove
-    def example_system_infos
-      {
-        :timetable_info => {
-          :url => {
-            :title => 'TITLE #1',
-            :link => 'http://url1.com'
-          },
-
-          :my_url => {
-            :title => 'MY TITLE #1',
-            :link => 'http://my_url1.com'
-          }
-        }.to_json,
-
-        :attendance_info => {
-          :url => {
-            :title => 'TITLE #2',
-            :link => 'http://url2.com'
-          },
-
-          :my_url => {
-            :title => 'MY TITLE #2',
-            :link => 'http://my_url2.com'
-          }
-        }.to_json
-      }
+      "#{sign_out_link}/users/sign_out?redirect_url=#{Settings['app.url']}"
     end
 
     def links_from_system_infos(key)
@@ -108,29 +77,34 @@ module TusurHeader
 
     def links_data
       @links_hash ||= begin
-                        array = []
 
+                        my_urls = []
                         if links_from_system_infos('my_url').any?
-                          links_from_system_infos('my_url').reject{ |elem| elem['link'].blank? }.sort{ |a, b| a['title'] <=> b['title'] }.each do |elem|
-                            array << { :title => elem['title'], :url => elem['link'] }
+                          links_from_system_infos('my_url').reject{ |elem| elem['link'].blank? }.each do |elem|
+                            my_urls << { title: elem['title'], url: elem['link'] }
                           end
 
-                          array << { :separator => true }
+                          my_urls = my_urls.sort{ |a, b| a[:title] <=> b[:title] }
+                          my_urls << { separator: true }
                         end
 
-                        array << { :title => 'Кабинет ТУСУР', :url => profile_url+'/' }
-
+                        urls = []
+                        urls << { title: 'Кабинет ТУСУР', url: "#{profile_url}/" }
                         if links_from_system_infos('url').any?
-                          links_from_system_infos('url').reject{ |elem| elem['link'].blank? }.sort{ |a, b| a['title'] <=> b['title'] }.each do |elem|
-                            array << { :title => elem['title'], :url => elem['link'] }
+                          links_from_system_infos('url').reject{ |elem| elem['link'].blank? }.each do |elem|
+                            urls << { title: elem['title'], url: elem['link'] }
                           end
-                          array << { :separator => true }
                         end
 
-                        array << { :title => 'Редактировать профиль', :url => edit_user_url }
-                        array << { :title => 'Выход', :url => sign_out_url, :options => { :method => :delete } }
+                        urls = urls.sort{ |a, b| a[:title] <=> b[:title] }
+                        urls << { separator: true }
+
+                        array = my_urls + urls
+                        array << { title: 'Редактировать профиль', url: edit_user_url }
+                        array << { title: 'Выход', url: sign_out_url, options: { method: :delete } }
 
                         array
+
                       end
     end
   end

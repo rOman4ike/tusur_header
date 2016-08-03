@@ -16,10 +16,21 @@
   </div>
 <% end %>
 
-<div class='tusur_header_wrapper'>
-  <% begin %>
-    <%= render_cdn('header').gsub('&quot;', '"').gsub('&gt;', '>').html_safe %>
-  <% rescue %>
+<% begin %>
+  <% raise 'redis.cdn not found' if Settings['redis.cdn'].blank? %>
+  <%= render_cdn('header').gsub('&quot;', '"').gsub('&gt;', '>').html_safe %>
+  <% if content_for?(:tusur_cdn_header_subtop) %>
+    <div class='tusur-cdn-header-subtop'>
+      <%= yield :tusur_cdn_header_subtop %>
+    </div>
+  <% end %>
+  <% if content_for?(:tusur_cdn_header_menu) %>
+    <div class='tusur-cdn-header-menu'>
+      <%= yield :tusur_cdn_header_menu %>
+    </div>
+  <% end %>
+<% rescue %>
+  <div class='tusur_header_wrapper'>
     <div class='navbar navbar-inverse navbar-fixed-top navbar-desktop' role='navigation' id='menu_first'>
       <div class='container'>
 
@@ -59,43 +70,44 @@
         </div>
       </div>
     </div>
-  <% end %>
-  <div class='navbar navbar-inverse navbar-second-menu' role='navigation' id='menu_second'>
-    <div class='container'>
 
-      <!-- Левая часть второй линии меню -->
-      <% if content_for?(:tusur_header_second_menu_left) %>
-        <%= yield :tusur_header_second_menu_left %>
-      <% end %>
-      <!-- / Левая часть второй линии меню -->
+    <div class='navbar navbar-inverse navbar-second-menu' role='navigation' id='menu_second'>
+      <div class='container'>
 
-      <!-- Правая часть второй линии меню -->
-      <% if content_for?(:tusur_header_second_menu_right) %>
-        <%= yield :tusur_header_second_menu_right %>
-      <% end %>
-      <!-- / Правая часть второй линии меню -->
-
-    </div>
-  </div>
-
-  <div class='navbar navbar-inverse navbar-fixed-top navbar-mobile' role='navigation' id='menu_mobile'>
-    <div class='container'>
-
-      <div class='navbar-header'>
-        <button type='button' class='navbar-toggle mobile-toggler' data-toggle='collapse' data-target='#site-menu'>
-          <span class='icon-bar'></span>
-          <span class='icon-bar'></span>
-          <span class='icon-bar'></span>
-        </button>
-        <a class='navbar-brand' href='/'></a>
-      </div>
-
-      <div class='navbar-collapse collapse' id='site-menu'>
-        <% if content_for?(:tusur_header_mobile_menu_block) %>
-          <%= yield :tusur_header_mobile_menu_block %>
+        <!-- Левая часть второй линии меню -->
+        <% if content_for?(:tusur_header_second_menu_left) %>
+          <%= yield :tusur_header_second_menu_left %>
         <% end %>
-      </div>
+        <!-- / Левая часть второй линии меню -->
 
+        <!-- Правая часть второй линии меню -->
+        <% if content_for?(:tusur_header_second_menu_right) %>
+          <%= yield :tusur_header_second_menu_right %>
+        <% end %>
+        <!-- / Правая часть второй линии меню -->
+
+      </div>
+    </div>
+
+    <div class='navbar navbar-inverse navbar-fixed-top navbar-mobile' role='navigation' id='menu_mobile'>
+      <div class='container'>
+
+        <div class='navbar-header'>
+          <button type='button' class='navbar-toggle mobile-toggler' data-toggle='collapse' data-target='#site-menu'>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
+          <a class='navbar-brand' href='/'></a>
+        </div>
+
+        <div class='navbar-collapse collapse' id='site-menu'>
+          <% if content_for?(:tusur_header_mobile_menu_block) %>
+            <%= yield :tusur_header_mobile_menu_block %>
+          <% end %>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
+<% end %>
