@@ -19,14 +19,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '>= 4.0', '< 6.0'
   s.add_dependency 'tusur_cdn'
 
-  s.add_runtime_dependency 'bootstrap-sass'
-  s.add_runtime_dependency 'coffee-rails'
   s.add_runtime_dependency 'configliere'
-  s.add_runtime_dependency 'compass-rails'
-  s.add_runtime_dependency 'jquery-rails'
-  s.add_runtime_dependency 'sass-rails', '>= 3.2'
   s.add_runtime_dependency 'rest-client'
-  s.add_runtime_dependency 'stop_ie', '>= 0.1.5'
 
   s.rubyforge_project = s.name
 end
