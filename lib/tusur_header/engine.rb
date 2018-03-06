@@ -1,8 +1,4 @@
-require 'compass-rails'
-require 'bootstrap-sass'
-require 'jquery-rails'
 require 'rest_client'
-require 'stop_ie'
 require 'tusur_cdn'
 
 module TusurHeader
