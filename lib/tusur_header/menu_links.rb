@@ -58,7 +58,7 @@ module TusurHeader
     end
 
     def edit_user_url
-      edit_user_link + '/users/edit'
+      %(#{edit_user_link}/#{I18n.locale}/users/edit)
     end
 
     def sign_out_link
@@ -66,7 +66,7 @@ module TusurHeader
     end
 
     def sign_out_url
-      "#{sign_out_link}/users/sign_out?redirect_url=#{Settings['app.url']}"
+      "#{sign_out_link}/#{I18n.locale}/users/sign_out?redirect_url=#{Settings['app.url']}"
     end
 
     def links_from_system_infos(key)
@@ -89,7 +89,7 @@ module TusurHeader
                         end
 
                         urls = []
-                        urls << { title: 'Кабинет ТУСУР', url: "#{profile_url}/" }
+                        urls << { title: I18n.t('menu_links.profile'), url: "#{profile_url}/#{I18n.locale}/dashboard" }
                         if links_from_system_infos('url').any?
                           links_from_system_infos('url').reject{ |elem| elem['link'].blank? }.each do |elem|
                             urls << { title: elem['title'], url: elem['link'] }
@@ -100,8 +100,8 @@ module TusurHeader
                         urls << { separator: true }
 
                         array = my_urls + urls
-                        array << { title: 'Редактировать профиль', url: edit_user_url }
-                        array << { title: 'Выход', url: sign_out_url, options: { method: :delete } }
+                        array << { title: I18n.t('menu_links.edit_profile'), url: edit_user_url }
+                        array << { title: I18n.t('menu_links.sign_out'), url: sign_out_url, options: { method: :delete } }
 
                         array
 
