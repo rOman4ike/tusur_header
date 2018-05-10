@@ -58,7 +58,7 @@ module TusurHeader
     end
 
     def edit_user_url
-      %(#{edit_user_link}/#{I18n.locale}/users/edit)
+      I18n.locale != :ru ? %(#{edit_user_link}/#{I18n.locale}/users/edit) : %(#{edit_user_link}/users/edit)
     end
 
     def sign_out_link
