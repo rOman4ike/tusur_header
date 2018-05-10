@@ -58,7 +58,7 @@ module TusurHeader
     end
 
     def edit_user_url
-      I18n.locale != :ru ? %(#{edit_user_link}/#{I18n.locale}/users/edit) : %(#{edit_user_link}/users/edit)
+      %(#{edit_user_link}/#{ I18n.locale == :ru ? nil : %(#{I18n.locale}/) }users/edit)
     end
 
     def sign_out_link
@@ -66,7 +66,7 @@ module TusurHeader
     end
 
     def sign_out_url
-      "#{sign_out_link}/#{I18n.locale}/users/sign_out?redirect_url=#{Settings['app.url']}"
+      "#{sign_out_link}/#{ I18n.locale == :ru ? nil : %(#{I18n.locale}/) }users/sign_out?redirect_url=#{Settings['app.url']}"
     end
 
     def links_from_system_infos(key)
@@ -89,7 +89,10 @@ module TusurHeader
                         end
 
                         urls = []
-                        urls << { title: I18n.t('menu_links.profile'), url: "#{profile_url}/#{I18n.locale}/dashboard" }
+                        urls << {
+                          title: I18n.t('menu_links.profile'),
+                          url: "#{profile_url}/#{ I18n.locale == :ru ? nil : %(#{I18n.locale}/) }dashboard"
+                        }
                         if links_from_system_infos('url').any?
                           links_from_system_infos('url').reject{ |elem| elem['link'].blank? }.each do |elem|
                             urls << { title: elem['title'], url: elem['link'] }
