@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split("\n")
 
   s.add_development_dependency 'bundler'
-  s.add_dependency 'rails', '>= 4.0', '< 6.0'
+  s.add_dependency 'rails', '>= 4.0', '< 7.0'
   s.add_dependency 'tusur_cdn'
 
   s.add_runtime_dependency 'configliere'
