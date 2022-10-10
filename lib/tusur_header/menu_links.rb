@@ -99,6 +99,10 @@ module TusurHeader
                           end
                         end
 
+                        urls << {
+                          title: 'Система дистанционного обучения', url: 'https://sdo.tusur.ru'
+                        } if I18n.locale == :ru
+
                         urls = urls.sort{ |a, b| a[:title] <=> b[:title] }
                         urls << { separator: true }
 
