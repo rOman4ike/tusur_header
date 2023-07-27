@@ -17,26 +17,21 @@
     border-bottom: 1px solid #ccc !important
 
   .error
-    margin: 25vw auto
-    width: 360px
+    height: calc(100vh - 40px)
     background: image_url('error-bg.svg')
-    background-size: contain
     background-repeat: no-repeat
+    background-position: center
     +display-flex
     +align-items(center)
     +flex-direction(row)
-    +justify-content(space-between)
+    +justify-content(center)
 
     .error-image
-      margin: 0 auto 25px auto
-      content: image_url('robot.svg') no-repeat center center
-      height: 400px
-      width: 400px
+      content: image_url('robot.svg')
+      margin-right: 25px
 
     .error-text
-      // padding: 20px 10px
       position: relative
-      text-align: center
       font-family: 'NekstRegular', sans-serif
 
       p, a
@@ -49,7 +44,7 @@
         background: image_url('error-text-404.svg') no-repeat center center
 
       p
-        margin: 0 0 10px 0
+        margin: 0 0 20px 0
 
       p:last-child
         margin: 0
