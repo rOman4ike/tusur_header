@@ -20,6 +20,8 @@
     margin: 25vw auto
     width: 360px
     background: image_url('error-bg.svg')
+    background-size: contain
+    background-repeat: no-repeat
     +display-flex
     +align-items(center)
     +flex-direction(row)
@@ -27,11 +29,12 @@
 
     .error-image
       margin: 0 auto 25px auto
-      background: image_url('robot.svg') no-repeat center center
+      content: image_url('robot.svg') no-repeat center center
+      height: 400px
+      width: 400px
 
     .error-text
-      border: 1px solid #cecece
-      padding: 20px 10px
+      // padding: 20px 10px
       position: relative
       text-align: center
       font-family: 'NekstRegular', sans-serif
@@ -44,28 +47,6 @@
 
       .error-header-404
         background: image_url('error-text-404.svg') no-repeat center center
-
-      &:after, &:before
-        bottom: 100%
-        left: 50%
-        border: solid transparent
-        content: " "
-        height: 0
-        width: 0
-        position: absolute
-        pointer-events: none
-
-      &:after
-        border-color: rgba(255, 255, 255, 0)
-        border-bottom-color: #ffffff
-        border-width: 17px
-        margin-left: -17px
-
-      &:before
-        border-color: rgba(206, 206, 206, 0)
-        border-bottom-color: #cecece
-        border-width: 18px
-        margin-left: -18px
 
       p
         margin: 0 0 10px 0
