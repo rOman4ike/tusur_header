@@ -17,37 +17,32 @@
     border-bottom: 1px solid #ccc !important
 
   .error
-    margin: 160px auto
+    margin: 25vw auto
     width: 360px
+    background: image_url('error-bg.svg')
+    +display-flex
+    +align-items(center)
+    +flex-direction(row)
+    +justify-content(space-between)
 
     .error-image
       margin: 0 auto 25px auto
-
-      &.error-403
-        background: image_url('403.png') no-repeat center center
-        height: 77px
-        width: 188px
-
-      &.error-404
-        background: image_url('404.png') no-repeat center center
-        height: 75px
-        width: 196px
-
-      &.error-500
-        background: image_url('500.png') no-repeat center center
-        height: 77px
-        width: 188px
-
-      &.error-502
-        background: image_url('502.png') no-repeat center center
-        height: 77px
-        width: 184px
 
     .error-text
       border: 1px solid #cecece
       padding: 20px 10px
       position: relative
       text-align: center
+      font-family: 'NekstRegular', sans-serif
+
+      p, a
+        font-size: 18px
+
+      .error-header
+        background: image_url('error-text.svg') no-repeat center center
+
+      .error-header-404
+        background: image_url('error-text-404.svg') no-repeat center center
 
       &:after, &:before
         bottom: 100%
@@ -77,7 +72,12 @@
       p:last-child
         margin: 0
 
-@media (max-width: 768px)
-  .error
-    margin: 40px auto !important
-    width: 280px !important
+@media (max-width: $screen-xs-max)
+  .error-page
+    .error
+      +flex-direction(column)
+
+// @media (max-width: 768px)
+  // .error
+    // margin: 40px auto !important
+    // width: 280px !important
