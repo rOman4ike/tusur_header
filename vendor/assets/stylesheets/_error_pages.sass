@@ -28,6 +28,7 @@
 
     .error-image
       content: image_url('robot.svg')
+      width: calc(150px + 12vw)
       margin-right: 25px
 
     .error-text
@@ -38,10 +39,10 @@
         font-size: 18px
 
       .error-header
-        background: image_url('error-text.svg') no-repeat center center
+        content: image_url('error-text.svg')
 
       .error-header-404
-        background: image_url('error-text-404.svg') no-repeat center center
+        content: image_url('error-text-404.svg')
 
       p
         margin: 0 0 20px 0
@@ -53,6 +54,27 @@
   .error-page
     .error
       +flex-direction(column)
+      height: 260px
+      background-size: contain
+      background-position: center 20vh
+
+      .error-image
+        margin: 0
+
+      .error-text
+        position: relative
+        top: -45px
+
+        .error-header,
+        .error-header-404
+          position: relative
+          top: -45px
+          width: 260px
+          margin-left: auto
+          margin-right: auto
+
+        p,a
+          text-align: center
 
 // @media (max-width: 768px)
   // .error
