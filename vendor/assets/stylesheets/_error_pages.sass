@@ -39,10 +39,12 @@
         font-size: 18px
 
       .error-header
-        content: image_url('error-text.svg')
+        content: image_url('error-text-404.svg')
+        width: calc(150px + 11vw)
 
       .error-header-404
-        content: image_url('error-text-404.svg')
+        content: image_url('error-text.svg')
+        width: calc(150px + 11vw)
 
       p
         margin: 0 0 20px 0
@@ -54,7 +56,6 @@
   .error-page
     .error
       +flex-direction(column)
-      height: 260px
       background-size: contain
       background-position: center 20vh
 
@@ -67,8 +68,6 @@
 
         .error-header,
         .error-header-404
-          position: relative
-          top: -45px
           width: 260px
           margin-left: auto
           margin-right: auto
